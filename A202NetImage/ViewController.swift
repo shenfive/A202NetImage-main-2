@@ -12,6 +12,9 @@ import SwiftyJSON
 class ViewController: UIViewController {
     @IBOutlet weak var theImageView: UIImageView!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var content: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +32,11 @@ class ViewController: UIViewController {
         content.layer.shadowOpacity = 0.6;
         content.layer.shadowColor = UIColor.gray.cgColor
         content.layer.shadowOffset = CGSize(width: 10, height: 10)
-
-        
-        
-        
-
-        
+        updateUser()
+    }
+    
+    func updateUser(){
         let apiModel = APIModel.share
-
         apiModel.queryRandomUserAlamofire { data, respError in
             if respError != nil {
                 print(respError?.localizedDescription)
@@ -48,13 +48,17 @@ class ViewController: UIViewController {
                 
                 do{
                     let theResult = try JSON(data: respData)
-                    print()
                     
                     let path = theResult["results"][0]["picture"]["large"].stringValue
                     let url = URL(string: path)!
-
-                    
                     self.theImageView.sd_setImage(with: url, completed: nil)
+                    
+                    self.nameLabel.text = theResult["results"][0]["name"]["title"].stringValue
+                    + " "
+                    + theResult["results"][0]["name"]["first"].stringValue
+                    
+                    self.phoneLabel.text = theResult["results"][0]["phone"].stringValue
+                    
                 }catch{
                     print(error.localizedDescription)
                 }
@@ -63,14 +67,11 @@ class ViewController: UIViewController {
                 
             }
         }
-        
-        
-
-        
-        
-        
     }
-
-
+    
+    @IBAction func updateUser(_ sender: Any) {
+        updateUser()
+    }
+    
 }
 

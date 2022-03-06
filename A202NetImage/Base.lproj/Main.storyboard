@@ -34,16 +34,49 @@
                                     <constraint firstItem="hvI-8U-9RK" firstAttribute="top" secondItem="LXI-We-pNo" secondAttribute="top" id="lqS-Hw-Orw"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mbo-es-72k">
+                                <rect key="frame" x="172.5" y="508" width="69" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2Q-e9-7xQ">
+                                <rect key="frame" x="186" y="563" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqC-Fe-4px">
+                                <rect key="frame" x="168" y="612" width="78" height="53"/>
+                                <color key="backgroundColor" red="0.84078937060000003" green="1" blue="0.69764934359999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="o5W-19-40P"/>
+                                    <constraint firstAttribute="height" constant="53" id="t0z-bK-mKB"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="next"/>
+                                <connections>
+                                    <action selector="updateUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b50-4b-s5U"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="LXI-We-pNo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="1RP-HK-Bd8"/>
+                            <constraint firstItem="TqC-Fe-4px" firstAttribute="top" secondItem="D2Q-e9-7xQ" secondAttribute="bottom" constant="28" id="8DS-zN-sRU"/>
+                            <constraint firstItem="D2Q-e9-7xQ" firstAttribute="top" secondItem="Mbo-es-72k" secondAttribute="bottom" constant="20" id="Ogx-GO-3G1"/>
+                            <constraint firstItem="Mbo-es-72k" firstAttribute="top" secondItem="LXI-We-pNo" secondAttribute="bottom" constant="40" id="P7Z-dq-T8t"/>
                             <constraint firstItem="LXI-We-pNo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="flR-xy-x45"/>
+                            <constraint firstItem="D2Q-e9-7xQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gA4-YE-anD"/>
+                            <constraint firstItem="TqC-Fe-4px" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sNc-Fr-vxz"/>
+                            <constraint firstItem="Mbo-es-72k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tZM-Pi-o4L"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="content" destination="LXI-We-pNo" id="rsA-y5-3zf"/>
+                        <outlet property="nameLabel" destination="Mbo-es-72k" id="WuB-56-ZMG"/>
+                        <outlet property="phoneLabel" destination="D2Q-e9-7xQ" id="f1n-do-PSL"/>
                         <outlet property="theImageView" destination="hvI-8U-9RK" id="6as-fe-3WT"/>
                     </connections>
                 </viewController>
