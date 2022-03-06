@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import SwiftyJSON
 
 class ViewController: UIViewController {
     @IBOutlet weak var theImageView: UIImageView!
@@ -44,15 +45,27 @@ class ViewController: UIViewController {
                 
                 let dataString = String(decoding:respData, as: UTF8.self)
                 print(dataString)
+                
+                do{
+                    let theResult = try JSON(data: respData)
+                    print()
+                    
+                    let path = theResult["results"][0]["picture"]["large"].stringValue
+                    let url = URL(string: path)!
+
+                    
+                    self.theImageView.sd_setImage(with: url, completed: nil)
+                }catch{
+                    print(error.localizedDescription)
+                }
+                
+                
+                
             }
         }
         
         
-        let path = "https://attach.setn.com/newsimages/2019/12/28/2328596-PH.jpg"
-        let url = URL(string: path)!
 
-        
-        theImageView.sd_setImage(with: url, completed: nil)
         
         
         

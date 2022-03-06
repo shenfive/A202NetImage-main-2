@@ -32,15 +32,8 @@ class APIModel{
             case .failure(let error):
                 return completion(nil,error)
             }
-
         }
-
-        
     }
-    
-    
-    
-    
 }
 
 
